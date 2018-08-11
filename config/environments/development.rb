@@ -1,5 +1,16 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins 'localhost:8100'
+      resource '*',
+               headers: :any,
+               methods: %i[get post put patch delete options head]
+    end
+  end
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
