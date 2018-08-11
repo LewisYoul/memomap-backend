@@ -10,10 +10,19 @@ class Api::MarkersController < Api::ApiController
   end
 
   def create
-    binding.pry
     marker = Marker.new(marker_params)
 
     if marker.save
+      render json: marker
+    else
+      head :bad_request
+    end
+  end
+
+  def destroy
+    marker = Marker.find(params[:id])
+
+    if marker.destroy
       render json: marker
     else
       head :bad_request
