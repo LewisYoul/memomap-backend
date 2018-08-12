@@ -10,7 +10,26 @@
   </head>
 
   <body>
-    <h1>MemoMap Back Office</h2>
+    <div>
+      <h1>MemoMap Back Office</h2>
+    </div>
+        <div class="row page-links">
+          <div class="col-sm-2 offset-sm-1 text-center">
+            <%= link_to 'Home', root_url %>
+          </div>
+          <div class="col-sm-2 text-center">
+            <%= link_to 'Users', markers_url %>
+          </div>
+          <div class="col-sm-2 text-center">
+            <%= link_to 'Markers', markers_url %>
+          </div>
+          <div class="col-sm-2 text-center">
+            <%= link_to 'Journeys', markers_url %>
+          </div>
+          <div class="col-sm-2 text-center">
+            <%= link_to 'Conversations', markers_url %>
+          </div>
+        </div>
     <%= yield %>
   </body>
 </html>
