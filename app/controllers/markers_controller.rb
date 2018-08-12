@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for Markers (back office)
 class MarkersController < ApplicationController
   before_action :set_marker, only: %i[show edit update destroy]
 
@@ -70,6 +71,6 @@ class MarkersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def marker_params
-    params.fetch(:marker, {})
+    params.require(:marker).permit(:lat, :lng, :category)
   end
 end
