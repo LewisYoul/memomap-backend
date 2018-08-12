@@ -3,5 +3,8 @@
     <h1 class="text-center">
       Currently <%= pluralize(@markers_count, 'marker') %> in the system.
     </h1>
+    <p>The <%= link_to('last marker', marker_path(@last_marker))%> was created
+      <%= distance_of_time_in_words(@last_marker.created_at, Time.now) %> ago.
+    </p>
   </div>
 </div>
