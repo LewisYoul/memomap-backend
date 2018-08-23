@@ -20,7 +20,8 @@
       <tr>
         <td><%= link_to marker.id.to_s, marker %></td>
         <td></td>
-        <td></td>
+        <td><%= marker.lat %></td>
+        <td><%= marker.lng %></td>
         <td><%= marker.category %></td>
         <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
         <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
