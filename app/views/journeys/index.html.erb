@@ -1,5 +1,14 @@
-<ol>
+<table>
+  <thead>
+    <td>ID</td>
+    <td>Title</td>
+    <td>Markers</td>
+  </thead>
   <% @journeys.each do |journey| %>
-    <li><%= journey.title %></li>
+  <tr>
+    <td><%= link_to journey.id.to_s, journey  %></td>
+    <td><%= journey.title %></td>
+    <td><%= journey.markers.length %></td>
+  </tr>
   <% end %>
-</ol>
+</table>
