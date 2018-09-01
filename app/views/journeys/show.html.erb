@@ -1,0 +1,34 @@
+<h3><%= @journey.title %></h3>
+
+<h5>Markers</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Category</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @markers.each do |marker| %>
+      <tr>
+        <td><%= link_to marker.id.to_s, marker %></td>
+        <td></td>
+        <td><%= marker.lat %></td>
+        <td><%= marker.lng %></td>
+        <td><%= marker.category %></td>
+        <td><%= link_to 'Edit', edit_marker_path(marker) %></td>
+        <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_journey_path(@journey) %>
+<%= link_to 'Back', journeys_path %>
