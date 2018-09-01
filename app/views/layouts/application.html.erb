@@ -14,21 +14,31 @@
       <h1>MemoMap Back Office</h2>
     </div>
         <div class="row page-links">
-          <div class="col-sm-2 offset-sm-1 text-center">
-            <%= link_to 'Home', root_url %>
-          </div>
-          <div class="col-sm-2 text-center">
-            <%= link_to 'Users', markers_url %>
-          </div>
-          <div class="col-sm-2 text-center">
-            <%= link_to 'Markers', markers_url %>
-          </div>
-          <div class="col-sm-2 text-center">
-            <%= link_to 'Journeys', journeys_url %>
-          </div>
-          <div class="col-sm-2 text-center">
-            <%= link_to 'Conversations', markers_url %>
-          </div>
+          <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+            <div class="col-sm-2 offset-sm-1 text-center">
+              <%= link_to 'Home', root_url %>
+            </div>
+            <div class="col-sm-2 text-center">
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+            </div>
+            <div class="col-sm-2 text-center">
+              <%= link_to 'Markers', markers_url %>
+            </div>
+            <div class="col-sm-2 text-center">
+              <%= link_to 'Journeys', journeys_url %>
+            </div>
+            <div class="col-sm-2 text-center">
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            </div>
+          <% else %>
+            <div class="col-sm-2 text-center">
+              <%= link_to 'Log In', new_user_session_path %>
+            </div>
+            <div class="col-sm-2 text-center">
+              <%= link_to 'Sign Up', new_user_registration_path %>
+            </div>
+          <% end %>
         </div>
 
         <% if notice %>
