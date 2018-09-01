@@ -6,6 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 gem 'devise'
+gem 'devise_token_auth'
+gem 'omniauth'
 gem 'pry'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rspec-rails'

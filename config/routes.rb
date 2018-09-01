@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :journeys
 
   namespace :api do
+    mount_devise_token_auth_for 'User', at: 'auth'
     resources :markers
   end
 end
